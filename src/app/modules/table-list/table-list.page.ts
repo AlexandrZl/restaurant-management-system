@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { TablesService } from '../../services/tables.service';
-import { retrievedTableList } from '../../models/tables.actions';
+import { getTableList, retrievedTableList } from '../../models/tables.actions';
 import { selectTables } from '../../models/tables.selectors';
 import { IFilter } from './models/IFilter';
 
@@ -22,12 +22,11 @@ export class TableListPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.tablesService
-      .getTables()
-      .subscribe((tables) => this.store.dispatch(retrievedTableList({ tables })));
+    this.store.dispatch(getTableList(null));
   }
 
   public applyFilter(filter: IFilter) {
+    this.store.dispatch(getTableList({ filter }));
   }
 
 }

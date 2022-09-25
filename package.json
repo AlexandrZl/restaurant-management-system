@@ -25,6 +25,7 @@
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
     "@ionic/angular": "^6.1.9",
+    "@ngrx/effects": "^14.3.1",
     "@ngrx/store": "^14.3.1",
     "ionicons": "^6.0.3",
     "lodash": "^4.17.21",

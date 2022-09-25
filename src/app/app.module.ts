@@ -9,6 +9,8 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { tablesReducer } from './models/tables.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { MovieEffects } from './models/table.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +19,8 @@ import { tablesReducer } from './models/tables.reducer';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ tables: tablesReducer }, {})
+    StoreModule.forRoot({ tables: tablesReducer }, {}),
+    EffectsModule.forRoot([MovieEffects])
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -9,7 +9,7 @@ export const tablesReducer = createReducer(
   initialState,
   on(retrievedTableList, (state, { tables }) => tables),
   on(setTime, (state, { tableId, time }) => {
-    return state.map((table) => {
+    state = state.map((table) => {
       if (table.id === tableId) {
         const newTable: ITable = Object.assign({}, table);
         newTable.time = [
@@ -22,5 +22,9 @@ export const tablesReducer = createReducer(
         return table;
       }
     });
+
+    window.localStorage.setItem('tables', JSON.stringify(state));
+
+    return state;
   })
 );
