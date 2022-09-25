@@ -12,5 +12,9 @@
     </ion-card-header>
 
     <ion-card-content>This is a wonderful table...</ion-card-content>
+
+    <app-time-list (onSelect)="onReserve($event)" [time]="table.time"></app-time-list>
   </ion-card>
+
+  <ion-button [disabled]="!selectedTime" (click)="reserve()">Reserve</ion-button>
 </ion-content>

@@ -1,0 +1,4 @@
+<ion-chip *ngFor="let timeItem of timeRange; trackBy: trackBy"
+          [disabled]="timeItem.isReserved"
+          [color]="timeItem.isReserved ? 'danger' : timeItem.isSelected ? 'warning' : 'success'"
+          (click)="select(timeItem)">{{ timeItem.start }} - {{ timeItem.end }}</ion-chip>

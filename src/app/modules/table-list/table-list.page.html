@@ -14,9 +14,11 @@
         <ion-card-title>Seats: {{ table.seats }}</ion-card-title>
       </ion-card-header>
 
-      <ion-card-content>Available Time: 12:00</ion-card-content>
+      <div>
+        <app-time-list [readonlyMode]="true" [time]="table.time"></app-time-list>
+      </div>
 
-      <ion-button [routerLink]="['reserve-table', table.id]" color="success">Reserve</ion-button>
+      <ion-button [routerLink]="['reserve-table', table.id]">Reserve This Table</ion-button>
     </ion-card>
   </ion-list>
 </ion-content>

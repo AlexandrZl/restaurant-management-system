@@ -1,11 +1,26 @@
 import { createReducer, on } from '@ngrx/store';
 
 import { ITable } from './ITable';
-import { retrievedTableList } from './tables.actions';
+import { retrievedTableList, setTime } from './tables.actions';
 
 export const initialState: ReadonlyArray<ITable> = [];
 
 export const tablesReducer = createReducer(
-    initialState,
-    on(retrievedTableList, (state, { tables }) => tables)
+  initialState,
+  on(retrievedTableList, (state, { tables }) => tables),
+  on(setTime, (state, { tableId, time }) => {
+    return state.map((table) => {
+      if (table.id === tableId) {
+        const newTable: ITable = Object.assign({}, table);
+        newTable.time = [
+          ...newTable.time || [],
+          time
+        ];
+
+        return newTable;
+      } else {
+        return table;
+      }
+    });
+  })
 );

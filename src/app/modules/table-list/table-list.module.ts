@@ -7,18 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { TableListPageRoutingModule } from './table-list-routing.module';
 
 import { TableListPage } from './table-list.page';
-import { FilterComponent } from './components/filter/filter.component';
+import { TableComponentModule } from './components/table-components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TableListPageRoutingModule
+    TableListPageRoutingModule,
+    TableComponentModule
   ],
   declarations: [
-    TableListPage,
-    FilterComponent
+    TableListPage
   ]
 })
 export class TableListPageModule {}

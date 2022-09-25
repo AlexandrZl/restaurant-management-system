@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ReserveTablePageRoutingModule } from './reserve-table-routing.module';
 
 import { ReserveTablePage } from './reserve-table.page';
+import { TableComponentModule } from '../../components/table-components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReserveTablePageRoutingModule
+    ReserveTablePageRoutingModule,
+    TableComponentModule
   ],
   declarations: [ReserveTablePage]
 })
