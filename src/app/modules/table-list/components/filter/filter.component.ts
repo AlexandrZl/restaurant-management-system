@@ -37,6 +37,12 @@ export class FilterComponent implements OnInit {
     });
   }
 
+  public resetFilter(): void {
+    this.selectedSeats = null;
+    this.selectedTime = null;
+    this.applyFilter();
+  }
+
   private defineTime() {
     const startHour: number = 9;
     const endHour: number = 22;

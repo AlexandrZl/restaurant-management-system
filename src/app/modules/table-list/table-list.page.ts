@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { TablesService } from '../../services/tables.service';
-import { getTableList, retrievedTableList } from '../../models/tables.actions';
+import { getTableList } from '../../models/tables.actions';
 import { selectTables } from '../../models/tables.selectors';
 import { IFilter } from './models/IFilter';
 

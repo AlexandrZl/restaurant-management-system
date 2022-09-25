@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { ITable } from './ITable';
+import { IReservedTableTime, ITable } from './ITable';
 import { retrievedTableList, setTime } from './tables.actions';
 
 export const initialState: ReadonlyArray<ITable> = [];
@@ -23,8 +23,20 @@ export const tablesReducer = createReducer(
       }
     });
 
-    window.localStorage.setItem('tables', JSON.stringify(state));
+    saveChangedTablesToStorage(state);
 
     return state;
   })
 );
+
+const saveChangedTablesToStorage = (tables: ReadonlyArray<ITable>) => {
+  const cachedTables: { [tableId: number]: IReservedTableTime[]} = JSON.parse(window.localStorage.getItem('tables') || JSON.stringify('')) || {};
+
+  tables.forEach((table) => {
+    if (table.time) {
+      cachedTables[table.id] = table.time;
+    }
+  });
+
+  window.localStorage.setItem('tables', JSON.stringify(cachedTables));
+};
