@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: TableListPage
+  },
+  {
+    path: 'reserve-table/:id',
+    loadChildren: () => import('./pages/reserve-table/reserve-table.module').then( m => m.ReserveTablePageModule)
   }
 ];
 

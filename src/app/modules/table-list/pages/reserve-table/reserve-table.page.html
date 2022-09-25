@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Table Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="table$ | async as table">
+    <ion-card-header>
+      <ion-card-subtitle>Seats: {{ table.seats }}</ion-card-subtitle>
+      <ion-card-title>Location: {{ table.location }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>This is a wonderful table...</ion-card-content>
+  </ion-card>
+</ion-content>

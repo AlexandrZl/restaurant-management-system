@@ -15,6 +15,8 @@
       </ion-card-header>
 
       <ion-card-content>Available Time: 12:00</ion-card-content>
+
+      <ion-button [routerLink]="['reserve-table', table.id]" color="success">Reserve</ion-button>
     </ion-card>
   </ion-list>
 </ion-content>
