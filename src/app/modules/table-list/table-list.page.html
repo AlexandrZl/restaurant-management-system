@@ -7,18 +7,24 @@
 <ion-content>
   <app-filter (onFilterChange)="applyFilter($event)"></app-filter>
 
-  <ion-list>
-    <ion-card *ngFor="let table of tables$ | async">
-      <ion-card-header>
-        <ion-card-subtitle>Location: {{ table.location }}</ion-card-subtitle>
-        <ion-card-title>Seats: {{ table.seats }}</ion-card-title>
-      </ion-card-header>
+  <ion-list *ngIf="tables$ | async as tables;">
+    <ng-container *ngIf="tables.length; else empty">
+      <ion-card *ngFor="let table of tables;">
+        <ion-card-header>
+          <ion-card-subtitle>Location: {{ table.location }}</ion-card-subtitle>
+          <ion-card-title>Seats: {{ table.seats }}</ion-card-title>
+        </ion-card-header>
 
-      <div>
-        <app-time-list [readonlyMode]="true" [time]="table.time"></app-time-list>
-      </div>
+        <div>
+          <app-time-list [readonlyMode]="true" [time]="table.time"></app-time-list>
+        </div>
 
-      <ion-button [routerLink]="['reserve-table', table.id]">Reserve This Table</ion-button>
-    </ion-card>
+        <ion-button [routerLink]="['reserve-table', table.id]">Reserve This Table</ion-button>
+      </ion-card>
+    </ng-container>
   </ion-list>
+
+  <ng-template #empty>
+    <ion-title class="empty-list-message">No Data</ion-title>
+  </ng-template>
 </ion-content>
