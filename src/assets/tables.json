@@ -1,0 +1,29 @@
+{
+  "tables": [
+    {
+      "id": 1,
+      "location": "A location",
+      "seats": 4
+    },
+    {
+      "id": 2,
+      "location": "B location",
+      "seats": 6
+    },
+    {
+      "id": 3,
+      "location": "C location",
+      "seats": 2
+    },
+    {
+      "id": 4,
+      "location": "D location",
+      "seats": 10
+    },
+    {
+      "id": 5,
+      "location": "E location",
+      "seats": 10
+    }
+  ]
+}

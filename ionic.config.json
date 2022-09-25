@@ -1,0 +1,7 @@
+{
+  "name": "restaurant-management-system",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
