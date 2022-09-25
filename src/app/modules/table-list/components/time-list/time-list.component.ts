@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 
 import { IReservedTableTime } from '../../../../models/ITable';
 
@@ -13,6 +13,7 @@ interface ITimeListItem extends IReservedTableTime {
   selector: 'app-time-list',
   templateUrl: './time-list.component.html',
   styleUrls: ['./time-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimeListComponent implements OnInit {
 

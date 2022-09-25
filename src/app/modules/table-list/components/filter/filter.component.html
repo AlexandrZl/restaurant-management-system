@@ -13,23 +13,13 @@
 
 <ion-list>
   <ion-item>
-    <ion-label>Starts</ion-label>
-    <ion-datetime-button datetime="start"></ion-datetime-button>
-    <ion-modal [keepContentsMounted]="true">
-      <ng-template>
-        <ion-datetime [max]="endTime" [(ngModel)]="startTime" (ionChange)="applyFilter()" showDefaultButtons="true" presentation="time" id="start"></ion-datetime>
-      </ng-template>
-    </ion-modal>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Ends</ion-label>
-    <ion-datetime-button datetime="end"></ion-datetime-button>
-
-    <ion-modal [keepContentsMounted]="true">
-      <ng-template>
-        <ion-datetime [min]="startTime" [(ngModel)]="endTime" (ionChange)="applyFilter()" showDefaultButtons="true" presentation="time" id="end"></ion-datetime>
-      </ng-template>
-    </ion-modal>
+    <ion-label>Select Time</ion-label>
+    <ion-list>
+      <ion-item>
+        <ion-select [(ngModel)]="selectedTime" (ionChange)="applyFilter()" placeholder="Available Time">
+          <ion-select-option *ngFor="let timeRangeItem of timeRange" [value]="timeRangeItem">{{ timeRangeItem }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
   </ion-item>
 </ion-list>

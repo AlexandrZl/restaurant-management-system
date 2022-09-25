@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { TablesService } from '../../services/tables.service';
@@ -10,6 +10,7 @@ import { IFilter } from './models/IFilter';
   selector: 'app-table-list',
   templateUrl: './table-list.page.html',
   styleUrls: ['./table-list.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableListPage implements OnInit {
 
@@ -27,7 +28,6 @@ export class TableListPage implements OnInit {
   }
 
   public applyFilter(filter: IFilter) {
-    console.log(0, filter);
   }
 
 }

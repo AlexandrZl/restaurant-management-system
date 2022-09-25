@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Location } from '@angular/common';
@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
   selector: 'app-reserve-table',
   templateUrl: './reserve-table.page.html',
   styleUrls: ['./reserve-table.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReserveTablePage implements OnInit {
 
