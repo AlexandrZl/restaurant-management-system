@@ -1,11 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Table List</ion-title>
+    <ion-title>Available Table List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div *ngFor="let table of tables$ | async">
-    {{ table.location }}
-  </div>
+  <app-filter (onFilterChange)="applyFilter($event)"></app-filter>
+
+  <ion-list>
+    <ion-card *ngFor="let table of tables$ | async">
+      <ion-card-header>
+        <ion-card-subtitle>Location: {{ table.location }}</ion-card-subtitle>
+        <ion-card-title>Seats: {{ table.seats }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>Available Time: 12:00</ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

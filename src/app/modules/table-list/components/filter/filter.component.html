@@ -1,0 +1,35 @@
+<ion-toolbar>
+  <ion-title>Table Filer:</ion-title>
+</ion-toolbar>
+
+<ion-list>
+  <ion-item>
+    <ion-label>Seats</ion-label>
+    <ion-select [(ngModel)]="selectedSeats" (ionChange)="applyFilter()" placeholder="Select number of sits">
+      <ion-select-option *ngFor="let seat of seats" [value]="seat">{{ seat }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <ion-item>
+    <ion-label>Starts</ion-label>
+    <ion-datetime-button datetime="start"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime [max]="endTime" [(ngModel)]="startTime" (ionChange)="applyFilter()" showDefaultButtons="true" presentation="time" id="start"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Ends</ion-label>
+    <ion-datetime-button datetime="end"></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime [min]="startTime" [(ngModel)]="endTime" (ionChange)="applyFilter()" showDefaultButtons="true" presentation="time" id="end"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+</ion-list>

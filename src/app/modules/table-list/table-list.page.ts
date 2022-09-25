@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { TablesService } from '../../services/tables.service';
 import { retrievedTableList } from '../../models/tables.actions';
 import { selectTables } from '../../models/tables.selectors';
+import { IFilter } from './models/IFilter';
 
 @Component({
   selector: 'app-table-list',
@@ -12,7 +13,7 @@ import { selectTables } from '../../models/tables.selectors';
 })
 export class TableListPage implements OnInit {
 
-  public tables$ = this.store.select(selectTables);
+  public tables$ = this.store.select(selectTables).pipe();
 
   constructor(
     private tablesService: TablesService,
@@ -23,6 +24,10 @@ export class TableListPage implements OnInit {
     this.tablesService
       .getTables()
       .subscribe((tables) => this.store.dispatch(retrievedTableList({ tables })));
+  }
+
+  public applyFilter(filter: IFilter) {
+    console.log(0, filter);
   }
 
 }
