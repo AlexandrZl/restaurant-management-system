@@ -29,6 +29,7 @@ export const tablesReducer = createReducer(
   })
 );
 
+// Assumes emulation API storing of changed data
 const saveChangedTablesToStorage = (tables: ReadonlyArray<ITable>) => {
   const cachedTables: { [tableId: number]: IReservedTableTime[]} = JSON.parse(window.localStorage.getItem('tables') || JSON.stringify('')) || {};
 

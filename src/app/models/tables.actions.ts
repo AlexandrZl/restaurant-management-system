@@ -9,7 +9,7 @@ export const getTableList = createAction(
 );
 
 export const retrievedTableList = createAction(
-  '[Table List/API] Retrieve Tables',
+  '[Table List/API] Retrieved Tables',
   props<{ tables: ReadonlyArray<ITable> }>()
 );
 

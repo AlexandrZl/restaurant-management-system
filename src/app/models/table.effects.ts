@@ -16,9 +16,8 @@ export class MovieEffects {
        return this.tablesService.getTables(data?.filter).pipe(
          map(tables => retrievedTableList( { tables })),
          catchError(() => EMPTY)
-       )
-      }
-      )
+       );
+      })
     )
   );
 
