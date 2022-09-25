@@ -5,5 +5,7 @@
 </ion-header>
 
 <ion-content>
-
+  <div *ngFor="let table of tables$ | async">
+    {{ table.location }}
+  </div>
 </ion-content>
